@@ -71,9 +71,9 @@ fi
 scriptVersion="1.12.10"
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 secondsToWait="${4:-"2700"}"                                    # Parameter 4: "secondsToWait" setting; defaults to "2700"
-scriptLog="/var/log/org.churchofjesuschrist.log"                # Your organization's default location for client-side logs
-plistPath="/Library/Preferences/com.company.plist"              # Your organization's Reverse Domain Name Notation
-jamfProPolicyName="@Setup Your Mac"
+scriptLog="/var/log/com.navan.sym.log"                # Your organization's default location for client-side logs
+plistPath="/Library/Preferences/com.navan.plist"              # Your organization's Reverse Domain Name Notation
+jamfProPolicyName="@SYM"
 plistKey="Setup Your Mac"
 selfServiceAppPath=$( defaults read /Library/Preferences/com.jamfsoftware.jamf.plist self_service_app_path )
 dialogBinary="/usr/local/bin/dialog"
@@ -125,7 +125,7 @@ function promptUser() {
     dialogCheck
 
     title="Welcome to your new Mac!"
-    message="Please complete the following steps to apply Church settings to your new Mac:  \n1. Login to the **Workforce App Store**  \n2. Locate the **Setup Your Mac** policy  \n3. Click **Setup**  \n\nIf you need assistance, please contact the GSD:  \n+1 (801) 555-1212 and mention **KB12345678**."
+    message="Please complete the following steps to apply Navan settings to your new Mac:  \n1. Login to the **Workforce App Store**  \n2. Locate the **Setup Your Mac** policy  \n3. Click **Setup**  \n\nIf you need assistance, please contact the Navan ITSO:  itso@navan.com."
 
     appleInterfaceStyle=$( /usr/bin/defaults read /Users/"${loggedInUser}"/Library/Preferences/.GlobalPreferences.plist AppleInterfaceStyle 2>&1 )
 
