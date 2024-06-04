@@ -46,7 +46,7 @@
 
 scriptVersion="1.14.2"
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
-scriptLog="${4:-"/var/log/org.churchofjesuschrist.log"}"                        # Parameter 4: Script Log Location [ /var/log/org.churchofjesuschrist.log ] (i.e., Your organization's default location for client-side logs)
+scriptLog="${4:-"/var/log/com.navan.sym.log"}"                        # Parameter 4: Script Log Location [ /var/log/org.churchofjesuschrist.log ] (i.e., Your organization's default location for client-side logs)
 debugMode="${5:-"verbose"}"                                                     # Parameter 5: Debug Mode [ verbose (default) | true | false ]
 welcomeDialog="${6:-"userInput"}"                                               # Parameter 6: Welcome dialog [ userInput (default) | video | messageOnly | false ]
 completionActionOption="${7:-"Restart Attended"}"                               # Parameter 7: Completion Action [ wait | sleep (with seconds) | Shut Down | Shut Down Attended | Shut Down Confirm | Restart | Restart Attended (default) | Restart Confirm | Log Out | Log Out Attended | Log Out Confirm ]
@@ -72,24 +72,26 @@ failureDialog="true"        # Display the so-called "Failure" dialog (after the 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # [SYM-Helper] These control which user input boxes are added to the first page of Setup Your Mac. If you do not want to ask about a value, set it to any other value
-promptForUsername="true"
+promptForUsername="false"
 prefillUsername="true"          # prefills the currently logged in user's username
-promptForRealName="true"
+promptForRealName="false"
 prefillRealname="true"          # prefills the currently logged in user's fullname
-promptForEmail="true"
-promptForComputerName="true"
+promptForEmail="false"
+prefillEmail="true"             # prefills the currently logged in user's email
+promptForComputerName="false"
+prefillComputerName="true"      # prefills the current Computer Name
 promptForAssetTag="true"
-promptForRoom="true"
+promptForRoom="false"
 promptForBuilding="true"
 promptForDepartment="true"
 promptForPosition="true"        # When set to true dynamically prompts the user to select from a list of positions or manually enter one at the welcomeDialog, see "positionListRaw" to define the selection / entry type
-promptForConfiguration="true"   # Removes the Configuration dropdown entirely and uses the "Catch-all (i.e., used when `welcomeDialog` is set to `video` or `false`)" or presetConfiguration policyJSON
+promptForConfiguration="false"  # Removes the Configuration dropdown entirely and uses the "Catch-all (i.e., used when `welcomeDialog` is set to `video` or `false`)" or presetConfiguration policyJSON
 
 # Set to "true" to suppress the Update Inventory option on policies that are called
 suppressReconOnPolicy="false"
 
 # [SYM-Helper] Disables the Blurscreen enabled by default in Production
-moveableInProduction="false"
+moveableInProduction="true"
 
 # [SYM-Helper] An unsorted, comma-separated list of buildings (with possible duplication). If empty, this will be hidden from the user info prompt
 buildingsListRaw="Benson (Ezra Taft) Building,Brimhall (George H.) Building,BYU Conference Center,Centennial Carillon Tower,Chemicals Management Building,Clark (Herald R.) Building,Clark (J. Reuben) Building,Clyde (W.W.) Engineering Building,Crabtree (Roland A.) Technology Building,Ellsworth (Leo B.) Building,Engineering Building,Eyring (Carl F.) Science Center,Grant (Heber J.) Building,Harman (Caroline Hemenway) Building,Harris (Franklin S.) Fine Arts Center,Johnson (Doran) House East,Kimball (Spencer W.) Tower,Knight (Jesse) Building,Lee (Harold B.) Library,Life Sciences Building,Life Sciences Greenhouses,Maeser (Karl G.) Building,Martin (Thomas L.) Building,McKay (David O.) Building,Nicholes (Joseph K.) Building,Smith (Joseph F.) Building,Smith (Joseph) Building,Snell (William H.) Building,Talmage (James E.) Math Sciences/Computer Building,Tanner (N. Eldon) Building,Taylor (John) Building,Wells (Daniel H.) Building"
@@ -116,13 +118,13 @@ brandingIconLight="https://cdn-icons-png.flaticon.com/512/979/979585.png"
 brandingIconDark="https://cdn-icons-png.flaticon.com/512/740/740878.png"
 
 # [SYM-Helper] IT Support Variables - Use these if the default text is fine but you want your org's info inserted instead
-supportTeamName="Support Team Name"
-supportTeamPhone="+1 (801) 555-1212"
-supportTeamEmail="support@domain.com"
-supportTeamWebsite="support.domain.com"
-supportTeamHyperlink="[${supportTeamWebsite}](https://${supportTeamWebsite})"
-supportKB="KB8675309"
-supportTeamErrorKB="[${supportKB}](https://servicenow.company.com/support?id=kb_article_view&sysparm_article=${supportKB}#Failures)"
+supportTeamName="Navan ITSO"
+# supportTeamPhone="+1 (801) 555-1212"
+supportTeamEmail="itso@navan.com"
+# supportTeamWebsite="support.domain.com"
+# supportTeamHyperlink="[${supportTeamWebsite}](https://${supportTeamWebsite})"
+# supportKB="KB8675309"
+# supportTeamErrorKB="[${supportKB}](https://servicenow.company.com/support?id=kb_article_view&sysparm_article=${supportKB}#Failures)"
 
 # Disable the "Continue" button in the User Input "Welcome" dialog until Dynamic Download Estimates have complete [ true | false ] (thanks, @Eltord!)
 lockContinueBeforeEstimations="false"
